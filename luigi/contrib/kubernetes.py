@@ -196,6 +196,13 @@ class KubernetesJobTask(luigi.Task):
         return False
 
     @property
+    def print_pod_logs_to_output(self):
+        """
+        Fetch and print the pod logs and push to STDOUT.
+        """
+        return self.__print_pod_logs()
+
+    @property
     def active_deadline_seconds(self):
         """
         Time allowed to successfully schedule pods.
